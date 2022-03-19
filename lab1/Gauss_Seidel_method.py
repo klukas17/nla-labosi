@@ -9,7 +9,7 @@ def Gauss_Seidel_method(A, x, b, iteration_count, n):
             for j in range(n):
                 if i != j:
                     tmp += A[i][j] * x[j]
-            x[j] = (b[i] - tmp) / A[i][i]
+            x[i] = (b[i] - tmp) / A[i][i]
         results.append(x)
         residuals.append(norm(matmul(A,x) - b))
     return results, residuals
