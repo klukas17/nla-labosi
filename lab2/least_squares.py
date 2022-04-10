@@ -10,7 +10,10 @@ import numpy
 numpy.set_printoptions(linewidth=500)
 numpy.set_printoptions(suppress=True)
 
-e = int(argv[1])
+if len(argv) == 1:
+    e = 0
+else:
+    e = int(argv[1])
 
 f = lambda x : x**2 - 3*x + 2
 m = vectorize(f)
@@ -64,5 +67,6 @@ fig, ax = plt.subplots(figsize=(12, 12))
 plt.plot(xp, u, 'r', label='Funkcija')
 plt.plot(xp, p, 'b', label="Polyfit")
 plt.plot(xp, v, 'g', label='Rješenje')
+plt.plot(x, b, 'co', label="Podaci")
 ax.legend(loc='upper right')
 plt.show()
