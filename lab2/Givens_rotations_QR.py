@@ -33,12 +33,6 @@ def QR(A):
             G[j][j] = c
             G[j][i] = s
             G[i][j] = -s
-
-            print(f'R={R}')
-            print(f'c={c}')
-            print(f's={s}')
-            print(f'G={G}')
-            print()
             
             R = matmul(G, R)
             
