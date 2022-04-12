@@ -6,6 +6,7 @@ from scipy.linalg import qr
 from random import random
 import matplotlib.pyplot as plt
 import numpy
+from Givens_rotations_QR import QR
 
 numpy.set_printoptions(linewidth=500)
 numpy.set_printoptions(suppress=True)
@@ -43,7 +44,7 @@ for i in range(50):
     b.append(y[i] + e * normal(0, 1))
 
 A = array(A)
-Q,R = qr(A)
+Q,R = QR(A)
 d = matmul(transpose(Q), b)
 
 d1 = array([d[i] for i in range(3)])

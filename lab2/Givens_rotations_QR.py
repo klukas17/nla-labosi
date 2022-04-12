@@ -33,6 +33,12 @@ def QR(A):
             G[j][j] = c
             G[j][i] = s
             G[i][j] = -s
+
+            print(f'R={R}')
+            print(f'c={c}')
+            print(f's={s}')
+            print(f'G={G}')
+            print()
             
             R = matmul(G, R)
             
@@ -43,18 +49,19 @@ def QR(A):
 
     return Q, R
 
-m = int(argv[1])
-n = int(argv[2])
+if __name__ == "__main__":
+    m = int(argv[1])
+    n = int(argv[2])
 
-A  = zeros((m, n))
+    A  = zeros((m, n))
 
-for i in range(m):
-    for j in range(n):
-        A[i][j] = random() * 200 - 100
+    for i in range(m):
+        for j in range(n):
+            A[i][j] = random() * 200 - 100
 
-QR(A)
-print(f'A =\n{A}\n')
-Q,R = QR(A)
-print(f'Q =\n{Q}\n')
-print(f'R =\n{R}\n')
-print(f'|QR - A| = {norm(matmul(Q, R) - A)}')
+    QR(A)
+    print(f'A =\n{A}\n')
+    Q,R = QR(A)
+    print(f'Q =\n{Q}\n')
+    print(f'R =\n{R}\n')
+    print(f'|QR - A| = {norm(matmul(Q, R) - A)}')
